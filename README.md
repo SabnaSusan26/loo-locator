@@ -7,6 +7,7 @@ Libraries: Vuex
 Language: TypeScript
 CSS Preprocessor: SCSS
 Lint: TSLint
+Unit Testing Framework: Mocha, Assertion Library : Chai
 
 ## Project setup
 ```
