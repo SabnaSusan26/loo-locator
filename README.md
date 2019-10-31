@@ -7,7 +7,9 @@ npm install
 ```
 
 ## Static Data
+```
 Change the BASE_URL to the local host in the src\common\constants.ts
+```
 
 ### Compiles and hot-reloads for development
 ```
