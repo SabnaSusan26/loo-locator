@@ -1,5 +1,5 @@
 # loo-locator
-The loo locator is a mobile application that provides the users the details of the loos inside a mall with a static map to traverse. The App also provides the information of facilities provided for each loo and the cleaning information.
+The loo locator is a mobile application that provides the users the details of the loos inside a mall with a static map to traverse. The App also provides the information of facilities provided for each loo.
 
 ## Project setup
 ```
