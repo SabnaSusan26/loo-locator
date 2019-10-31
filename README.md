@@ -14,7 +14,7 @@ Unit Testing Framework: Mocha, Assertion Library : Chai
 npm install
 ```
 
-## Configure app
+### Configure app
 ```
 Change the BASE_URL to the local host in the src\common\constants.ts
 ```
