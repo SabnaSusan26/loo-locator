@@ -1,7 +1,7 @@
 # loo-locator
 The loo locator is a mobile application that provides the users the details of the loos inside a mall with a map to traverse. The App also provides the information of facilities provided for each loo.
 
-### Framework, Languages & tools
+#### Framework, Languages & tools
 Frame work: Vue  
 Libraries: Vuex  
 Language: TypeScript  
