@@ -3,19 +3,31 @@ import { shallowMount, createLocalVue } from '@vue/test-utils';
 import sinon from 'sinon';
 import Vuex from 'vuex';
 import VueRouter from 'vue-router';
-import LooMap from '@/components/LooMap.vue';
+import LooAminityDetails from '@/components/LooAminityDetails.vue';
 import { LooCategory } from '@/models/LooCategory';
 import { LooDetails } from '@/models/LooDetails';
+import Home from '@/views/Home.vue';
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
 localVue.use(VueRouter);
 
-describe('LooMap.vue', () => {
+const router = new VueRouter({
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: Home,
+    },
+  ],
+});
+
+describe('LooAminityDetails.vue', () => {
   let actions;
   let store: any;
   let category: any[] = [];
   let looDetail: any[] = [];
+  let aminityDetail: any[] = [];
   const list = {
     categories: [
       {
@@ -105,18 +117,115 @@ describe('LooMap.vue', () => {
         },
       ],
     },
+    aminityDetails: {
+      4: [
+        {
+          id: 1,
+          name: '1 x adult toilet',
+          loo_id: 3,
+          CreatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+          UpdatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+        },
+        {
+          id: 2,
+          name: '2 x children toilet',
+          loo_id: 3,
+          CreatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+          UpdatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+        },
+        {
+          id: 3,
+          name: '3 x arm chairs',
+          loo_id: 3,
+          CreatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+          UpdatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+        },
+      ],
+      2: [
+        {
+          id: 1,
+          name: '1 x adult toilet',
+          loo_id: 3,
+          CreatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+          UpdatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+        },
+        {
+          id: 2,
+          name: '2 x children toilet',
+          loo_id: 3,
+          CreatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+          UpdatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+        },
+        {
+          id: 3,
+          name: '3 x arm chairs',
+          loo_id: 3,
+          CreatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+          UpdatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+        },
+      ],
+      1: [
+        {
+          id: 1,
+          name: '1 x adult toilet',
+          loo_id: 3,
+          CreatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+          UpdatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+        },
+        {
+          id: 2,
+          name: '2 x children toilet',
+          loo_id: 3,
+          CreatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+          UpdatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+        },
+        {
+          id: 3,
+          name: '3 x arm chairs',
+          loo_id: 3,
+          CreatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+          UpdatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+        },
+      ],
+      3: [
+        {
+          id: 1,
+          name: '1 x adult toilet',
+          loo_id: 3,
+          CreatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+          UpdatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+        },
+        {
+          id: 2,
+          name: '2 x children toilet',
+          loo_id: 3,
+          CreatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+          UpdatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+        },
+        {
+          id: 3,
+          name: '3 x arm chairs',
+          loo_id: 3,
+          CreatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+          UpdatedAt: '2019-10-28 00:00:00.0000000 +00:00',
+        },
+      ],
+    },
   };
   beforeEach(() => {
     actions = {
       categories: sinon.stub().returns(list.categories),
       looDetails: sinon.stub().returns(list.looDetails[4]),
+      aminityDetails: sinon.stub().returns(list.aminityDetails[4]),
     };
     category = list.categories;
     looDetail = list.looDetails[4];
+    aminityDetail = list.aminityDetails[4];
     const LooLoc = {
       state: {
         category,
         looDetail,
+        aminityDetail,
       },
       actions,
     };
@@ -127,36 +236,28 @@ describe('LooMap.vue', () => {
     });
   });
 
-  it('tests the category details', async () => {
-    const wrapper = shallowMount(LooMap, {
+  it('tests the category details are mapped properly', async () => {
+    const wrapper = shallowMount(LooAminityDetails, {
       store,
       localVue,
     });
-    await (wrapper.vm as any).getCategories();
+    await (wrapper.vm as any).mapCategories();
     expect(wrapper.vm.$data.categories).to.eql(list.categories);
   });
-  it('tests the loo details', async () => {
-    const wrapper = shallowMount(LooMap, {
+  it('tests the loader will be turned on, on call of loo categories services in loo aminity', async () => {
+    const wrapper = shallowMount(LooAminityDetails, {
       store,
       localVue,
     });
-    await (wrapper.vm as any).getLooDetails(4);
-    expect(wrapper.vm.$data.looDetails).to.eql(list.looDetails[4]);
-  });
-  it('tests the loader will be turned of, on call of loo details services', async () => {
-    const wrapper = shallowMount(LooMap, {
-      store,
-      localVue,
-    });
-    await (wrapper.vm as any).getLooDetails(4);
+    await (wrapper.vm as any).mapCategories();
     expect(wrapper.vm.$data.loader).to.eql(false);
   });
-  it('tests the loader will be turned on, on call of loo categories services', async () => {
-    const wrapper = shallowMount(LooMap, {
+  it('tests the getAminityDetails function', async () => {
+    const wrapper = shallowMount(LooAminityDetails, {
       store,
       localVue,
     });
-    await (wrapper.vm as any).getCategories();
-    expect(wrapper.vm.$data.loader).to.eql(false);
+    await (wrapper.vm as any).getAminityDetails(4);
+    expect(wrapper.vm.$data.aminityDetails).to.eql(list.aminityDetails[4]);
   });
 });

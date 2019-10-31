@@ -6,6 +6,7 @@ import LooAminity from '@/components/LooAminity.vue';
 import { LooCategory } from '@/models/LooCategory';
 import { LooAminities } from '@/models/LooAminities';
 import { LooDetails } from '@/models/LooDetails';
+import LooLoader from '@/loo-components/LooLoader.vue';
 import constants from '@/common/constants';
 
 @Component({
@@ -14,6 +15,7 @@ import constants from '@/common/constants';
     LooBackButton,
     LooAminity,
     LooMenu,
+    LooLoader,
   },
 })
 
