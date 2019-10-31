@@ -16,5 +16,14 @@ const constants = {
   DEFAULTCATEGORY: 4,
   AMINITIES_PROVIDED: 'Amenities provided',
   CONTACT_US: 'Contact Us',
+  OPEN_MENU: 'open-menu',
+  CLOSE_MENU: 'close-menu',
+  PARENT_ID: 4,
+  ACCESSIBLE_ID: 3,
+  LADIES_ID: 1,
+  MENS_ID: 2,
+  LOODETAILS: 'looDetails',
+  AMINITYDETAILS: 'aminityDetails',
+  CATEGORIES: 'categories',
 };
 export default constants;

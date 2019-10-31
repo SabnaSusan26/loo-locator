@@ -28,7 +28,7 @@ export default class LooAminityDetails extends Vue {
   private constants = constants;
   private showMap: boolean = false;
   private loader: boolean = true;
-  private looId: number = 4;
+  private looId: number = constants.DEFAULTCATEGORY;
 
   private created() {
     if (this.$store.state.LooLoc.looDetail.length === 0) {
@@ -45,7 +45,7 @@ export default class LooAminityDetails extends Vue {
   }
   // To fetch the aminities
   private async getAminityDetails(id: number) {
-    await this.$store.dispatch('aminityDetails', { id });
+    await this.$store.dispatch(constants.AMINITYDETAILS, { id });
     if (this.$store.state.LooLoc.aminityDetail.length > 0) {
       this.showMap = true;
       this.aminityDetails = [...this.$store.state.LooLoc.aminityDetail];
@@ -57,7 +57,7 @@ export default class LooAminityDetails extends Vue {
   // To fetch the loo details
   private async getLooDetails(id: number) {
     this.loader = true;
-    await this.$store.dispatch('looDetails', { id });
+    await this.$store.dispatch(constants.LOODETAILS, { id });
     if (this.$store.state.LooLoc.looDetail.length > 0) {
       this.showMap = true;
       this.looDetails = [...this.$store.state.LooLoc.looDetail];

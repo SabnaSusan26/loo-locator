@@ -36,7 +36,6 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-  @import "../styles/components/looaminitydetails.scss";
   @import "../styles/components/loomap.scss";
 </style>
 </template>

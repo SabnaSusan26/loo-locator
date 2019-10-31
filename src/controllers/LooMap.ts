@@ -25,7 +25,7 @@ export default class LooMap extends Vue {
   private constants = constants;
   private showMap: boolean = true;
   private loader: boolean = true;
-  private defaultLoo: number = 4;
+  private defaultLoo: number = constants.DEFAULTCATEGORY;
 
   // Fetching categories and loo details on load
   private created() {
@@ -42,12 +42,12 @@ export default class LooMap extends Vue {
   }
 
   private async getCategories() {
-    await this.$store.dispatch('categories');
+    await this.$store.dispatch(constants.CATEGORIES);
     this.categories = [...this.$store.state.LooLoc.category];
   }
 
   private async getLooDetails(id: number) {
-    await this.$store.dispatch('looDetails', { id });
+    await this.$store.dispatch(constants.LOODETAILS, { id });
     if (this.$store.state.LooLoc.looDetail.length > 0) {
       this.showMap = true;
       this.looDetails = [...this.$store.state.LooLoc.looDetail];

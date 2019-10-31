@@ -4,10 +4,10 @@
     <div class="loo-map-way-holder">
       <div class="d-flex justify-content-center mb-4">
         <div class="loo-map-for-icon mb-md-1">
-          <img v-if="data[0].category_id === 4" src="../assets/parenticon.png" alt="map" class="parent-icon" />
-          <img v-if="data[0].category_id === 3" src="../assets/accessible-icon.png" alt="map" class="accessible-icon" />
-          <img v-if="data[0].category_id === 1" src="../assets/ladies-icon.png" alt="map" class="ladies-icon" />
-          <img v-if="data[0].category_id === 2" src="../assets/mens-icon.png" alt="map" class="men-icon" />
+          <img v-if="data[0].category_id === constants.PARENT_ID" src="../assets/parenticon.png" alt="map" class="parent-icon" />
+          <img v-if="data[0].category_id === constants.ACCESSIBLE_ID" src="../assets/accessible-icon.png" alt="map" class="accessible-icon" />
+          <img v-if="data[0].category_id === constants.LADIES_ID" src="../assets/ladies-icon.png" alt="map" class="ladies-icon" />
+          <img v-if="data[0].category_id === constants.MENS_ID" src="../assets/mens-icon.png" alt="map" class="men-icon" />
         </div>
         <div class="loo-map-show-way">
           <h2 class="loo-map-show-way-title">

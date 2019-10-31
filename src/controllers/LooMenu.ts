@@ -7,21 +7,21 @@ import constants from '@/common/constants';
 })
 
 export default class LooMenu extends Vue {
-  private status: string = 'close';
+  private status: string = constants.CLOSE_MENU;
   private constants = constants;
   @Prop() private data!: LooCategory[];
   @Prop() private title!: string;
   // To close menu
   private closeNav() {
-    this.status = 'close-menu';
+    this.status = constants.CLOSE_MENU;
   }
   // To open menu
   private openNav() {
-    this.status = 'open-menu';
+    this.status = constants.OPEN_MENU;
   }
    // To close menu on selection
   private closeMenu(id: number) {
-    this.status = 'close-menu';
+    this.status = constants.CLOSE_MENU;
     this.$emit('clicked', id);
   }
 }
