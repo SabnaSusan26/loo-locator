@@ -6,7 +6,7 @@ const constants = {
   LIVE_GUIDE: 'LIVE GUIDE',
   AMENITY_DETAILS: 'See amenity details',
   NOT_AVAILABLE: 'oops..! The Loos are closed due to maintainance for a while. Please try again later.',
-  BASE_URL: 'http://localhost:8080/',
+  BASE_URL: 'http://localhost:8081/',
   WAY: 'SHOW ME THE WAY',
   AMENITY_TITLE: 'Amenity details',
   FACILITIES_PROVIDED: 'Facilities Provided',
